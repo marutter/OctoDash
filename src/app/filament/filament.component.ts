@@ -101,6 +101,8 @@ export class FilamentComponent implements OnInit {
         this.setPage(3);
         return;
       } else {
+        this.purgeAmount = this.configService.useM600() ? 0 : this.configService.getPurgeDistance();
+        this.purgeFilament(this.purgeAmount);
         this.unloadSpool();
       }
     } else if (page === 3) {
